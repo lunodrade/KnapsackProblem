@@ -10,9 +10,9 @@
     <Grid>
         <Label x:Name="labelPesoMaxMochila" Content="Peso máximo da mochila:" HorizontalAlignment="Left" Margin="28,27,0,0" VerticalAlignment="Top"/>
         <Slider x:Name="sliderPesoMaxMochila" Margin="177,32,0,0" HorizontalAlignment="Left" Width="222" Height="24" VerticalAlignment="Top" />
-        <wpfTool:IntegerUpDown x:Name="numPesoMaxMochila" FormatString="N0" Value="1564" Increment="1" Maximum="200000" Margin="404,26,28.4,0" Height="24" VerticalAlignment="Top"/>
+        <wpfTool:IntegerUpDown x:Name="numPesoMaxMochila" FormatString="N0" Value="1564" Increment="1" Maximum="200000" Margin="404,26,53,0" Height="24" VerticalAlignment="Top"/>
         <Label x:Name="labelPesoObj" Content="Peso objeto:" HorizontalAlignment="Left" Margin="28,74,0,0" VerticalAlignment="Top"/>
-        <wpfTool:RangeSlider x:Name="sliderPesoObj" Minimum="20" Maximum="80" Margin="108,79,119.4,0" Height="32" VerticalAlignment="Top" />
+        <wpfTool:RangeSlider x:Name="sliderPesoObj" Minimum="1.0" Maximum="5.0" LowerValue="2.3" HigherValue="3.7" Margin="108,79,119.4,0" Height="32" VerticalAlignment="Top" Step="0.1" HigherValueChanged="sliderPesoObj_HigherValueChanged" LowerValueChanged="sliderPesoObj_LowerValueChanged" />
         <Label x:Name="labelValorObj" Content="Valor objeto:" HorizontalAlignment="Left" Margin="28,100,0,0" VerticalAlignment="Top"/>
         <wpfTool:RangeSlider x:Name="sliderValorObj" Minimum="20" Maximum="80" Margin="108,105,119.4,0" Height="32" VerticalAlignment="Top" />
         <Label x:Name="labelNumMochila" Content="Número de mochilas:" HorizontalAlignment="Left" Margin="28,163,0,0" VerticalAlignment="Top"/>
@@ -31,6 +31,8 @@
         <Label x:Name="label1" Content="un." HorizontalAlignment="Left" Margin="225,163,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="un." HorizontalAlignment="Left" Margin="450,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.096,0.385"/>
         <Label x:Name="label3" Content="%" HorizontalAlignment="Left" Margin="451,189,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label4" Content="kg" HorizontalAlignment="Left" Margin="469,27,0,0" VerticalAlignment="Top"/>
+        <Label  Name="labelNumPesoObj" Content="Label" HorizontalAlignment="Left" Margin="398,74,0,0" VerticalAlignment="Top" Loaded="labelNumPesoObj_Loaded"/>
 
     </Grid>
 </Window>
