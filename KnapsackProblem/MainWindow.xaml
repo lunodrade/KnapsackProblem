@@ -16,17 +16,21 @@
         <Label x:Name="labelValorObj" Content="Valor objeto:" HorizontalAlignment="Left" Margin="28,100,0,0" VerticalAlignment="Top"/>
         <wpfTool:RangeSlider x:Name="sliderValorObj" Minimum="20" Maximum="80" Margin="108,105,119.4,0" Height="32" VerticalAlignment="Top" />
         <Label x:Name="labelNumMochila" Content="Número de mochilas:" HorizontalAlignment="Left" Margin="28,163,0,0" VerticalAlignment="Top"/>
-        <wpfTool:IntegerUpDown x:Name="numNumMochila" FormatString="N0" Value="1564" Increment="1" Maximum="200000" Margin="156,163,276.4,0" Height="24" VerticalAlignment="Top"/>
+        <wpfTool:IntegerUpDown x:Name="numNumMochila" FormatString="N0" Value="1564" Increment="1" Maximum="200000" Margin="156,163,301,0" Height="24" VerticalAlignment="Top"/>
         <Label x:Name="labelTxCruzamento" Content="Taxa de cruzamentos:" HorizontalAlignment="Left" Margin="28,189,0,0" VerticalAlignment="Top"/>
-        <wpfTool:IntegerUpDown x:Name="numTxCruzamento" FormatString="N0" Value="1564" Increment="1" Maximum="200000" Margin="156,194,276.4,0" Height="24" VerticalAlignment="Top"/>
+        <wpfTool:IntegerUpDown x:Name="numTxCruzamento" FormatString="N0" Value="1564" Increment="1" Maximum="200000" Margin="156,191,301,0" Height="24" VerticalAlignment="Top"/>
         <Label x:Name="labelIntGeracao" Content="Intervalo de geração:" HorizontalAlignment="Left" Margin="263,163,0,0" VerticalAlignment="Top"/>
-        <wpfTool:IntegerUpDown x:Name="numIntGeracao" FormatString="N0" Value="1564" Increment="1" Maximum="200000" Margin="385,165,47.4,0" Height="24" VerticalAlignment="Top"/>
+        <wpfTool:IntegerUpDown x:Name="numIntGeracao" FormatString="N0" Value="1564" Increment="1" Maximum="200000" Margin="384,163,73,0" Height="24" VerticalAlignment="Top"/>
         <Label x:Name="labelTxMutacao" Content="Taxa de mutação:" HorizontalAlignment="Left" Margin="263,189,0,0" VerticalAlignment="Top"/>
-        <wpfTool:IntegerUpDown x:Name="numTxMutacao" FormatString="N0" Value="1564" Increment="1" Maximum="200000" Margin="369,191,63.4,0" Height="24" VerticalAlignment="Top"/>
+        <wpfTool:IntegerUpDown x:Name="numTxMutacao" FormatString="N0" Value="1564" Increment="1" Maximum="200000" Margin="384,191,73,0" Height="24" VerticalAlignment="Top"/>
         <Button x:Name="buttonResetaDados" Content="Resetar dados" HorizontalAlignment="Left" Margin="28,266,0,0" VerticalAlignment="Top" Width="123" Height="32" Background="#FFEDEDED"/>
         <Button x:Name="buttonProcessar" Content="Processar" Margin="0,266,28.4,0" VerticalAlignment="Top" Height="32" HorizontalAlignment="Right" Width="123" Background="#FFA5EDBA"/>
         <Label x:Name="labelLimiar" Content="Limiar:" HorizontalAlignment="Left" Margin="382,235,0,0" VerticalAlignment="Top"/>
         <Label x:Name="labelNumLimiar" Content="80%" HorizontalAlignment="Left" Margin="425,235,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="%" HorizontalAlignment="Left" Margin="225,189,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="un." HorizontalAlignment="Left" Margin="225,163,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="un." HorizontalAlignment="Left" Margin="450,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.096,0.385"/>
+        <Label x:Name="label3" Content="%" HorizontalAlignment="Left" Margin="451,189,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
