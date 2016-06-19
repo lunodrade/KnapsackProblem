@@ -58,3 +58,5 @@ C:\Users\nicho\Documents\GitHub\KnapsackProblem\KnapsackProblem\obj\Debug\MainWi
 C:\Users\nicho\Documents\GitHub\KnapsackProblem\KnapsackProblem\obj\Debug\KnapsackProblem.g.resources
 C:\Users\nicho\Documents\GitHub\KnapsackProblem\KnapsackProblem\obj\Debug\KnapsackProblem.Properties.Resources.resources
 C:\Users\nicho\Documents\GitHub\KnapsackProblem\KnapsackProblem\obj\Debug\KnapsackProblem.csproj.GenerateResource.Cache
+L:\Workspace\GitHub\KnapsackProblem\KnapsackProblem\obj\Debug\KnapsackWindow.g.cs
+L:\Workspace\GitHub\KnapsackProblem\KnapsackProblem\obj\Debug\KnapsackWindow.baml

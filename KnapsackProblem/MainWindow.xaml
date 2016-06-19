@@ -6,33 +6,67 @@
         xmlns:local="clr-namespace:KnapsackProblem"
         xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
         mc:Ignorable="d"
-        Title="Problema da Mochila" Height="350" Width="525">
-    <Grid>
-        <Label x:Name="labelPesoMaxMochila" Content="Peso máximo da mochila:" HorizontalAlignment="Left" Margin="28,27,0,0" VerticalAlignment="Top"/>
-        <Slider x:Name="sliderPesoMaxMochila" Margin="177,32,0,0" HorizontalAlignment="Left" Width="222" Height="24" VerticalAlignment="Top" />
-        <wpfTool:IntegerUpDown x:Name="numPesoMaxMochila" FormatString="N0" Value="1564" Increment="1" Maximum="200000" Margin="404,26,53,0" Height="24" VerticalAlignment="Top"/>
-        <Label x:Name="labelPesoObj" Content="Peso objeto:" HorizontalAlignment="Left" Margin="28,74,0,0" VerticalAlignment="Top"/>
-        <wpfTool:RangeSlider x:Name="sliderPesoObj" Minimum="1.0" Maximum="5.0" LowerValue="2.3" HigherValue="3.7" Margin="108,79,119.4,0" Height="32" VerticalAlignment="Top" Step="0.1" HigherValueChanged="sliderPesoObj_HigherValueChanged" LowerValueChanged="sliderPesoObj_LowerValueChanged" />
-        <Label x:Name="labelValorObj" Content="Valor objeto:" HorizontalAlignment="Left" Margin="28,100,0,0" VerticalAlignment="Top"/>
-        <wpfTool:RangeSlider x:Name="sliderValorObj" Minimum="20" Maximum="80" Margin="108,105,119.4,0" Height="32" VerticalAlignment="Top" />
-        <Label x:Name="labelNumMochila" Content="Número de mochilas:" HorizontalAlignment="Left" Margin="28,163,0,0" VerticalAlignment="Top"/>
-        <wpfTool:IntegerUpDown x:Name="numNumMochila" FormatString="N0" Value="1564" Increment="1" Maximum="200000" Margin="156,163,301,0" Height="24" VerticalAlignment="Top"/>
-        <Label x:Name="labelTxCruzamento" Content="Taxa de cruzamentos:" HorizontalAlignment="Left" Margin="28,189,0,0" VerticalAlignment="Top"/>
-        <wpfTool:IntegerUpDown x:Name="numTxCruzamento" FormatString="N0" Value="1564" Increment="1" Maximum="200000" Margin="156,191,301,0" Height="24" VerticalAlignment="Top"/>
-        <Label x:Name="labelIntGeracao" Content="Intervalo de geração:" HorizontalAlignment="Left" Margin="263,163,0,0" VerticalAlignment="Top"/>
-        <wpfTool:IntegerUpDown x:Name="numIntGeracao" FormatString="N0" Value="1564" Increment="1" Maximum="200000" Margin="384,163,73,0" Height="24" VerticalAlignment="Top"/>
-        <Label x:Name="labelTxMutacao" Content="Taxa de mutação:" HorizontalAlignment="Left" Margin="263,189,0,0" VerticalAlignment="Top"/>
-        <wpfTool:IntegerUpDown x:Name="numTxMutacao" FormatString="N0" Value="1564" Increment="1" Maximum="200000" Margin="384,191,73,0" Height="24" VerticalAlignment="Top"/>
-        <Button x:Name="buttonResetaDados" Content="Resetar dados" HorizontalAlignment="Left" Margin="28,266,0,0" VerticalAlignment="Top" Width="123" Height="32" Background="#FFEDEDED"/>
-        <Button x:Name="buttonProcessar" Content="Processar" Margin="0,266,28.4,0" VerticalAlignment="Top" Height="32" HorizontalAlignment="Right" Width="123" Background="#FFA5EDBA"/>
-        <Label x:Name="labelLimiar" Content="Limiar:" HorizontalAlignment="Left" Margin="382,235,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelNumLimiar" Content="80%" HorizontalAlignment="Left" Margin="425,235,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label" Content="%" HorizontalAlignment="Left" Margin="225,189,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="un." HorizontalAlignment="Left" Margin="225,163,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label2" Content="un." HorizontalAlignment="Left" Margin="450,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.096,0.385"/>
-        <Label x:Name="label3" Content="%" HorizontalAlignment="Left" Margin="451,189,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label4" Content="kg" HorizontalAlignment="Left" Margin="469,27,0,0" VerticalAlignment="Top"/>
-        <Label  Name="labelNumPesoObj" Content="Label" HorizontalAlignment="Left" Margin="398,74,0,0" VerticalAlignment="Top" Loaded="labelNumPesoObj_Loaded"/>
+        Title="Problema da Mochila" Height="400" Width="525" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Loaded="Grid_Loaded">
+        <Label x:Name="labelPesoMaxMochila" Content="Peso máximo da mochila:" HorizontalAlignment="Left" Margin="28,39,0,0" VerticalAlignment="Top"/>
+        <Slider x:Name="sliderPesoMaxMochila" Margin="177,44,0,0" HorizontalAlignment="Left" Width="202" Height="24" VerticalAlignment="Top" ValueChanged="sliderPesoMaxMochila_ValueChanged" TickPlacement="BottomRight" IsSnapToTickEnabled="True" 
+                TickFrequency="1" 
+                Minimum="5" 
+                Maximum="15" />
+        <wpfTool:IntegerUpDown x:Name="numPesoMaxMochila" FormatString="N0" Margin="397,38,60.4,0" Height="24" VerticalAlignment="Top" Loaded="numPesoMaxMochila_Loaded" ValueChanged="numPesoMaxMochila_ValueChanged"/>
+        <Label x:Name="label4" Content="Kg" HorizontalAlignment="Left" Margin="450,39,0,0" VerticalAlignment="Top"/>
+
+        <Label x:Name="labelPesoObj" Content="Peso objeto:" HorizontalAlignment="Left" Margin="28,86,0,0" VerticalAlignment="Top"/>
+        <wpfTool:RangeSlider x:Name="sliderPesoObj" Margin="108,91,122.4,0" Height="32" VerticalAlignment="Top" HigherValueChanged="sliderPesoObj_HigherValueChanged" LowerValueChanged="sliderPesoObj_LowerValueChanged"
+                Step="0.1" 
+                Minimum="1.0" 
+                Maximum="5.0" />
+        <Label  Name="labelNumPesoObj" Content="min - max (Kg)" HorizontalAlignment="Left" Margin="396,86,0,0" VerticalAlignment="Top" Loaded="labelNumPesoObj_Loaded"/>
+
+        <Label x:Name="labelValorObj" Content="Valor objeto:" HorizontalAlignment="Left" Margin="28,112,0,0" VerticalAlignment="Top"/>
+        <wpfTool:RangeSlider x:Name="sliderValorObj" Margin="108,117,122.4,0" Height="32" VerticalAlignment="Top" LowerValueChanged="sliderValorObj_LowerValueChanged" HigherValueChanged="sliderValorObj_HigherValueChanged"
+                Step="0.1" 
+                Minimum="1.0" 
+                Maximum="10.0" />
+        <Label  Name="labelNumValorObj" Content="min - max (R$)" HorizontalAlignment="Left" Margin="396,112,0,0" VerticalAlignment="Top" Loaded="labelNumValorObj_Loaded"/>
+
+        <Label x:Name="labelNumMochila" Content="Número de mochilas:" HorizontalAlignment="Left" Margin="28,175,0,0" VerticalAlignment="Top"/>
+        <wpfTool:IntegerUpDown x:Name="numNumMochila" FormatString="N0" Margin="156,175,301.4,0" Height="24" VerticalAlignment="Top" 
+                Increment="1"
+                Minimum="1"
+                Maximum="100"/>
+        <Label x:Name="label1" Content="un." HorizontalAlignment="Left" Margin="211,175,0,0" VerticalAlignment="Top"/>
+
+        <Label x:Name="labelTxCruzamento" Content="Taxa de cruzamentos:" HorizontalAlignment="Left" Margin="28,201,0,0" VerticalAlignment="Top"/>
+        <wpfTool:IntegerUpDown x:Name="numTxCruzamento" FormatString="N0" Margin="156,203,301.4,0" Height="24" VerticalAlignment="Top"
+                Increment="1"
+                Minimum="1"
+                Maximum="100"/>
+        <Label x:Name="label" Content="%" HorizontalAlignment="Left" Margin="211,201,0,0" VerticalAlignment="Top"/>
+
+        <Label x:Name="labelIntGeracao" Content="Intervalo de geração:" HorizontalAlignment="Left" Margin="276,175,0,0" VerticalAlignment="Top"/>
+        <wpfTool:IntegerUpDown x:Name="numIntGeracao" FormatString="N0" Margin="397,175,60.4,0" Height="24" VerticalAlignment="Top"
+                Increment="1"
+                Minimum="1"
+                Maximum="100"/>
+        <Label x:Name="label2" Content="un." HorizontalAlignment="Left" Margin="451,175,0,0" VerticalAlignment="Top"/>
+
+        <Label x:Name="labelTxMutacao" Content="Taxa de mutação:" HorizontalAlignment="Left" Margin="276,201,0,0" VerticalAlignment="Top"/>
+        <wpfTool:IntegerUpDown x:Name="numTxMutacao" FormatString="N0" Margin="397,203,60.4,0" Height="24" VerticalAlignment="Top"
+                Increment="1"
+                Minimum="1"
+                Maximum="100"/>
+        <Label x:Name="label3" Content="%" HorizontalAlignment="Left" Margin="452,201,0,0" VerticalAlignment="Top"/>
+
+        <Label x:Name="labelLimiar" Content="Limiar:" HorizontalAlignment="Left" Margin="370,267,0,0" VerticalAlignment="Top"/>
+        <wpfTool:IntegerUpDown x:Name="numLimiar" Margin="413,268,53.4,0" Height="24" VerticalAlignment="Top"
+                Increment="1"
+                Minimum="1"
+                Maximum="100"/>
+        <Label x:Name="labelPercLimiar" Content="%" HorizontalAlignment="Left" Margin="456,267,0,0" VerticalAlignment="Top" Width="24"/>
+
+        <Button x:Name="buttonResetaDados" Content="Resetar dados" HorizontalAlignment="Left" Margin="28,318,0,0" VerticalAlignment="Top" Width="123" Height="32" Background="#FFEDEDED" Click="buttonResetaDados_Click"/>
+        <Button x:Name="buttonProcessar" Content="Processar" Margin="0,318,28.4,0" VerticalAlignment="Top" Height="32" HorizontalAlignment="Right" Width="123" Background="#FFA5EDBA" Click="buttonProcessar_Click"/>
 
     </Grid>
 </Window>
