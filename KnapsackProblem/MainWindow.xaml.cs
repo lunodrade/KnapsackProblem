@@ -32,10 +32,11 @@ namespace KnapsackProblem
             sliderPesoObj.HigherValue = 4.2;
             sliderValorObj.LowerValue = 4.7;
             sliderValorObj.HigherValue = 7.4;
-            numNumMochila.Value = 10;
-            numTxCruzamento.Value = 10;
+            numNumMochila.Value = 64;
+            numTxCruzamento.Value = 40;
             numIntGeracao.Value = 10;
-            numTxMutacao.Value = 10;
+            numIntGeracao.Maximum = (int) Math.Floor( ((decimal) numNumMochila.Value) / 2);
+            numTxMutacao.Value = (decimal) 0.5;
             numLimiar.Value = 80;
         }
 
@@ -143,6 +144,20 @@ namespace KnapsackProblem
             KnapsackWindow window = new KnapsackWindow();
             //window.ShowDialog();         //Permite só uma instância da janela resultado
             window.Show();               //Permite várias instâncias da janela resultado
+        }
+
+        private void numNumMochila_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+        }
+
+        private void numNumMochila_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (numIntGeracao != null)
+            {
+                numIntGeracao.Maximum = (int)Math.Floor(((decimal)numNumMochila.Value) / 2);
+                if (numIntGeracao.Value > numIntGeracao.Maximum)
+                    numIntGeracao.Value = numIntGeracao.Maximum;
+            }
         }
     }
 }

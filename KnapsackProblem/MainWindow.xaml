@@ -33,29 +33,28 @@
         <Label x:Name="labelNumMochila" Content="Número de mochilas:" HorizontalAlignment="Left" Margin="28,175,0,0" VerticalAlignment="Top"/>
         <wpfTool:IntegerUpDown x:Name="numNumMochila" FormatString="N0" Margin="156,175,301.4,0" Height="24" VerticalAlignment="Top" 
                 Increment="1"
-                Minimum="1"
-                Maximum="100"/>
+                Minimum="2"
+                Maximum="512" ValueChanged="numNumMochila_ValueChanged" LostFocus="numNumMochila_LostFocus"/>
         <Label x:Name="label1" Content="un." HorizontalAlignment="Left" Margin="211,175,0,0" VerticalAlignment="Top"/>
 
         <Label x:Name="labelTxCruzamento" Content="Taxa de cruzamentos:" HorizontalAlignment="Left" Margin="28,201,0,0" VerticalAlignment="Top"/>
         <wpfTool:IntegerUpDown x:Name="numTxCruzamento" FormatString="N0" Margin="156,203,301.4,0" Height="24" VerticalAlignment="Top"
                 Increment="1"
-                Minimum="1"
+                Minimum="20"
                 Maximum="100"/>
-        <Label x:Name="label" Content="%" HorizontalAlignment="Left" Margin="211,201,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="un" HorizontalAlignment="Left" Margin="211,201,0,0" VerticalAlignment="Top"/>
 
         <Label x:Name="labelIntGeracao" Content="Intervalo de geração:" HorizontalAlignment="Left" Margin="276,175,0,0" VerticalAlignment="Top"/>
         <wpfTool:IntegerUpDown x:Name="numIntGeracao" FormatString="N0" Margin="397,175,60.4,0" Height="24" VerticalAlignment="Top"
                 Increment="1"
-                Minimum="1"
-                Maximum="100"/>
+                Minimum="2"/>
         <Label x:Name="label2" Content="un." HorizontalAlignment="Left" Margin="451,175,0,0" VerticalAlignment="Top"/>
 
         <Label x:Name="labelTxMutacao" Content="Taxa de mutação:" HorizontalAlignment="Left" Margin="276,201,0,0" VerticalAlignment="Top"/>
-        <wpfTool:IntegerUpDown x:Name="numTxMutacao" FormatString="N0" Margin="397,203,60.4,0" Height="24" VerticalAlignment="Top"
-                Increment="1"
-                Minimum="1"
-                Maximum="100"/>
+        <wpfTool:DecimalUpDown x:Name="numTxMutacao" FormatString="N0" Margin="397,203,60.4,0" Height="24" VerticalAlignment="Top"
+                Increment="0.1"
+                Minimum="0.5"
+                Maximum="5.0"/>
         <Label x:Name="label3" Content="%" HorizontalAlignment="Left" Margin="452,201,0,0" VerticalAlignment="Top"/>
 
         <Label x:Name="labelLimiar" Content="Limiar:" HorizontalAlignment="Left" Margin="370,267,0,0" VerticalAlignment="Top"/>
