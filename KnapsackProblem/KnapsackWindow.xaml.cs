@@ -23,5 +23,29 @@ namespace KnapsackProblem
         {
             InitializeComponent();
         }
+
+        private void button0_Click(object sender, RoutedEventArgs e)
+        {
+            if (button0.IsChecked == false)
+                grid1.ColumnDefinitions[0].Width = new GridLength(0);
+            else
+                grid1.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            if (button1.IsChecked == false)
+                grid1.ColumnDefinitions[1].Width = new GridLength(0);
+            else
+                grid1.ColumnDefinitions[1].Width = new GridLength(1, GridUnitType.Star);
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            if (button2.IsChecked == false)
+                grid1.ColumnDefinitions[2].Width = new GridLength(0);
+            else
+                grid1.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
+        }
     }
 }
