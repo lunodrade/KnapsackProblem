@@ -60,3 +60,6 @@ C:\Users\nicho\Documents\GitHub\KnapsackProblem\KnapsackProblem\obj\Debug\Knapsa
 C:\Users\nicho\Documents\GitHub\KnapsackProblem\KnapsackProblem\obj\Debug\KnapsackProblem.csproj.GenerateResource.Cache
 L:\Workspace\GitHub\KnapsackProblem\KnapsackProblem\obj\Debug\KnapsackWindow.g.cs
 L:\Workspace\GitHub\KnapsackProblem\KnapsackProblem\obj\Debug\KnapsackWindow.baml
+L:\Workspace\GitHub\KnapsackProblem\KnapsackProblem\obj\Debug\CircularProgressBar.g.cs
+L:\Workspace\GitHub\KnapsackProblem\KnapsackProblem\obj\Debug\GeneratedInternalTypeHelper.g.cs
+L:\Workspace\GitHub\KnapsackProblem\KnapsackProblem\obj\Debug\CircularProgressBar.baml

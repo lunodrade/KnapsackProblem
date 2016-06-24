@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KnapsackProblem"
         mc:Ignorable="d"
+        xmlns:DesignInControl="clr-namespace:KnapsackProblem"
         Title="MainWindow" Height="473" Width="812" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <ToggleButton IsChecked="True" Content="ITENS" Height="23" Margin="267,27,448,0" Name="button0" VerticalAlignment="Top" Click="button0_Click" />
@@ -135,7 +136,18 @@
                             </ScrollViewer>
 
                             <StackPanel Grid.Column="1" Background="#FF749A9A">
-                                <Button>VISUAL</Button>
+
+
+                                <TextBlock Text="Peso %:" TextAlignment="Center"/>
+                                <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <DesignInControl:CircularProgressBar HorizontalAlignment="Center" VerticalAlignment="Center" SegmentColor="#FF878889" StrokeThickness="10" Percentage="100" />
+                                    <DesignInControl:CircularProgressBar HorizontalAlignment="Center" VerticalAlignment="Center" Percentage="{Binding Value, ElementName=slider}" SegmentColor="#026873" StrokeThickness="15" />
+                                </Grid>
+                                <TextBlock Text="{Binding Value, ElementName=slider}" Margin="39,-46,39,30" TextAlignment="Center"></TextBlock>
+                                <Slider x:Name="slider" Grid.Row="1" Maximum="100" Value="30" />
+                                <TextBlock Margin="10" Text="Valor $: 45" TextAlignment="Center"/>
+                                
+                                
                             </StackPanel>
 
                         </Grid>
