@@ -27,9 +27,10 @@
                             <Style x:Key="StackPanelPadding" TargetType="Control">
                                 <Setter Property="Margin" Value="5,2,5,2"/>
                                 <Setter Property="Height" Value="32"/>
-                                <Setter Property="Background" Value="#FFD8D8D8"/>
+                                <Setter Property="Background" Value="#FCFCFC"/>
                                 <Setter Property="IsHitTestVisible" Value="False"/>
                                 <Setter Property="IsTabStop" Value="False"/>
+                                <Setter Property="BorderBrush" Value="#EEE"/>
                             </Style>
                             <Style BasedOn="{StaticResource StackPanelPadding}" TargetType="Button"/>
                         </StackPanel.Resources>
@@ -83,6 +84,49 @@
                                     <Setter Property="Margin" Value="3"/>
                                     <Setter Property="Height" Value="56"/>
                                     <Setter Property="Width" Value="56"/>
+                                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                                    <Setter Property="Background" Value="#EEE"/>
+                                    <Setter Property="BorderBrush" Value="#cccccc"/>
+                                    <Setter Property="BorderThickness" Value="1"/>
+                                    <Setter Property="Foreground" Value="#333333"/>
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="Padding" Value="16,3,16,3"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border Name="Chrome"
+                                                        Background="{TemplateBinding Background}"
+                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                                        SnapsToDevicePixels="true">
+                                                    <ContentPresenter Name="Presenter" Margin="{TemplateBinding Padding}"
+                                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                        RecognizesAccessKey="True"
+                                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                </Border>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsEnabled" Value="false">
+                                                        <Setter Property="Foreground" Value="#333333" />
+                                                    </Trigger>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="#dddddd" />
+                                                        <Setter Property="BorderBrush" Value="#cccccc" />
+                                                        <Setter Property="Foreground" Value="#333333" />
+                                                    </Trigger>
+                                                    <Trigger Property="IsPressed" Value="True">
+                                                        <Setter Property="Background" Value="#1ba1e2" />
+                                                        <Setter Property="BorderBrush" Value="#1ba1e2"/>
+                                                        <Setter Property="Foreground" Value="#ffffff"/>
+                                                    </Trigger>
+                                                    <Trigger Property="IsFocused" Value="true">
+                                                        <Setter TargetName="Chrome" Property="BorderBrush" Value="#1ba1e2" />
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
                                 </Style>
                                 <Style BasedOn="{StaticResource StackPanelPadding}" TargetType="Button"/>
                             </WrapPanel.Resources>
@@ -114,7 +158,7 @@
                                             <Setter Property="Margin" Value="3"/>
                                             <Setter Property="Height" Value="22"/>
                                             <Setter Property="Width" Value="50"/>
-                                            <Setter Property="Background" Value="#FFD8D8D8"/>
+                                            <Setter Property="Background" Value="#EFEFEF"/>
                                             <Setter Property="IsHitTestVisible" Value="False"/>
                                             <Setter Property="IsTabStop" Value="False"/>
                                         </Style>
@@ -143,7 +187,7 @@
                                     <DesignInControl:CircularProgressBar HorizontalAlignment="Center" VerticalAlignment="Center" SegmentColor="#FF878889" StrokeThickness="10" Percentage="100" />
                                     <DesignInControl:CircularProgressBar HorizontalAlignment="Center" VerticalAlignment="Center" Percentage="{Binding Value, ElementName=slider}" SegmentColor="#026873" StrokeThickness="15" />
                                 </Grid>
-                                <TextBlock Text="{Binding Value, ElementName=slider}" Margin="39,-46,39,30" TextAlignment="Center"></TextBlock>
+                                <TextBlock Text="{Binding Value, ElementName=slider}" Margin="39,-50,39,35" TextAlignment="Center"></TextBlock>
                                 <Slider x:Name="slider" Grid.Row="1" Maximum="100" Value="30" />
                                 <TextBlock Margin="10" Text="Valor $: 45" TextAlignment="Center"/>
                                 
