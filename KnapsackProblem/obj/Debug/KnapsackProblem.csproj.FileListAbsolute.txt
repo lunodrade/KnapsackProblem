@@ -63,3 +63,5 @@ L:\Workspace\GitHub\KnapsackProblem\KnapsackProblem\obj\Debug\KnapsackWindow.bam
 L:\Workspace\GitHub\KnapsackProblem\KnapsackProblem\obj\Debug\CircularProgressBar.g.cs
 L:\Workspace\GitHub\KnapsackProblem\KnapsackProblem\obj\Debug\GeneratedInternalTypeHelper.g.cs
 L:\Workspace\GitHub\KnapsackProblem\KnapsackProblem\obj\Debug\CircularProgressBar.baml
+L:\Workspace\GitHub\KnapsackProblem\KnapsackProblem\bin\Debug\System.Net.Http.dll
+L:\Workspace\GitHub\KnapsackProblem\KnapsackProblem\bin\Debug\System.Net.Http.xml

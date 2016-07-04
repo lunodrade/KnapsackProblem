@@ -8,6 +8,66 @@
         xmlns:DesignInControl="clr-namespace:KnapsackProblem"
         Title="MainWindow" Height="473" Width="812" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
+        <Grid.Resources>
+            <Style x:Key="KnapsackList" TargetType="Control">
+                <Setter Property="Margin" Value="3"/>
+                <Setter Property="Height" Value="56"/>
+                <Setter Property="Width" Value="56"/>
+                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                <Setter Property="Background" Value="#EEE"/>
+                <Setter Property="BorderBrush" Value="#cccccc"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Foreground" Value="#333333"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="16,3,16,3"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Name="Chrome"
+                                                        Background="{TemplateBinding Background}"
+                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                                        SnapsToDevicePixels="true">
+                                <ContentPresenter Name="Presenter" Margin="{TemplateBinding Padding}"
+                                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                        RecognizesAccessKey="True"
+                                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Foreground" Value="#333333" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#dddddd" />
+                                    <Setter Property="BorderBrush" Value="#cccccc" />
+                                    <Setter Property="Foreground" Value="#333333" />
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="#1ba1e2" />
+                                    <Setter Property="BorderBrush" Value="#1ba1e2"/>
+                                    <Setter Property="Foreground" Value="#ffffff"/>
+                                </Trigger>
+                                <Trigger Property="IsFocused" Value="true">
+                                    <Setter TargetName="Chrome" Property="BorderBrush" Value="#1ba1e2" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="KnapsackItensStock" TargetType="Control">
+                <Setter Property="Margin" Value="3"/>
+                <Setter Property="Height" Value="22"/>
+                <Setter Property="Width" Value="50"/>
+                <Setter Property="Background" Value="#EFEFEF"/>
+                <Setter Property="IsHitTestVisible" Value="False"/>
+                <Setter Property="IsTabStop" Value="False"/>
+            </Style>
+        </Grid.Resources>
+        
         <ToggleButton IsChecked="True" Content="ITENS" Height="23" Margin="267,27,448,0" Name="button0" VerticalAlignment="Top" Click="button0_Click" />
         <ToggleButton IsChecked="True" Content="ANTES" Height="23" Margin="357,27,357,0" Name="button1" VerticalAlignment="Top" Click="button1_Click" />
         <ToggleButton IsChecked="True" Content="DEPOIS" Height="23" Margin="448,27,267,0" Name="button2" VerticalAlignment="Top" Click="button2_Click" />
@@ -80,55 +140,7 @@
                     <ScrollViewer VerticalScrollBarVisibility="Visible" Height="180" Padding="15,10,15,10">
                         <WrapPanel>
                             <WrapPanel.Resources>
-                                <Style x:Key="StackPanelPadding" TargetType="Control">
-                                    <Setter Property="Margin" Value="3"/>
-                                    <Setter Property="Height" Value="56"/>
-                                    <Setter Property="Width" Value="56"/>
-                                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-                                    <Setter Property="Background" Value="#EEE"/>
-                                    <Setter Property="BorderBrush" Value="#cccccc"/>
-                                    <Setter Property="BorderThickness" Value="1"/>
-                                    <Setter Property="Foreground" Value="#333333"/>
-                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
-                                    <Setter Property="Padding" Value="16,3,16,3"/>
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate TargetType="{x:Type Button}">
-                                                <Border Name="Chrome"
-                                                        Background="{TemplateBinding Background}"
-                                                        BorderBrush="{TemplateBinding BorderBrush}"
-                                                        BorderThickness="{TemplateBinding BorderThickness}"
-                                                        SnapsToDevicePixels="true">
-                                                    <ContentPresenter Name="Presenter" Margin="{TemplateBinding Padding}"
-                                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                        RecognizesAccessKey="True"
-                                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                                                </Border>
-                                                <ControlTemplate.Triggers>
-                                                    <Trigger Property="IsEnabled" Value="false">
-                                                        <Setter Property="Foreground" Value="#333333" />
-                                                    </Trigger>
-                                                    <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter Property="Background" Value="#dddddd" />
-                                                        <Setter Property="BorderBrush" Value="#cccccc" />
-                                                        <Setter Property="Foreground" Value="#333333" />
-                                                    </Trigger>
-                                                    <Trigger Property="IsPressed" Value="True">
-                                                        <Setter Property="Background" Value="#1ba1e2" />
-                                                        <Setter Property="BorderBrush" Value="#1ba1e2"/>
-                                                        <Setter Property="Foreground" Value="#ffffff"/>
-                                                    </Trigger>
-                                                    <Trigger Property="IsFocused" Value="true">
-                                                        <Setter TargetName="Chrome" Property="BorderBrush" Value="#1ba1e2" />
-                                                    </Trigger>
-                                                </ControlTemplate.Triggers>
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Style>
-                                <Style BasedOn="{StaticResource StackPanelPadding}" TargetType="Button"/>
+                                <Style BasedOn="{StaticResource KnapsackList}" TargetType="Button"/>
                             </WrapPanel.Resources>
                             <Button>Bag #1</Button>
                             <Button>Bag #2</Button>
@@ -154,15 +166,7 @@
                             <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
                                 <WrapPanel Grid.Column="0" Orientation="Vertical" Height="127" Margin="5">
                                     <WrapPanel.Resources>
-                                        <Style x:Key="StackPanelPadding" TargetType="Control">
-                                            <Setter Property="Margin" Value="3"/>
-                                            <Setter Property="Height" Value="22"/>
-                                            <Setter Property="Width" Value="50"/>
-                                            <Setter Property="Background" Value="#EFEFEF"/>
-                                            <Setter Property="IsHitTestVisible" Value="False"/>
-                                            <Setter Property="IsTabStop" Value="False"/>
-                                        </Style>
-                                        <Style BasedOn="{StaticResource StackPanelPadding}" TargetType="Button"/>
+                                        <Style BasedOn="{StaticResource KnapsackItensStock}" TargetType="Button"/>
                                     </WrapPanel.Resources>
                                     <Button>Item #1</Button>
                                     <Button>Item #2</Button>
@@ -205,12 +209,7 @@
                     <ScrollViewer VerticalScrollBarVisibility="Visible" Height="180" Padding="15,10,15,10">
                         <WrapPanel>
                             <WrapPanel.Resources>
-                                <Style x:Key="StackPanelPadding" TargetType="Control">
-                                    <Setter Property="Margin" Value="3"/>
-                                    <Setter Property="Height" Value="56"/>
-                                    <Setter Property="Width" Value="56"/>
-                                </Style>
-                                <Style BasedOn="{StaticResource StackPanelPadding}" TargetType="Button"/>
+                                <Style BasedOn="{StaticResource KnapsackList}" TargetType="Button"/>
                             </WrapPanel.Resources>
                             <Button>Bag #1</Button>
                             <Button>Bag #2</Button>
@@ -236,15 +235,7 @@
                             <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
                                 <WrapPanel Grid.Column="0" Orientation="Vertical" Height="127" Margin="5">
                                     <WrapPanel.Resources>
-                                        <Style x:Key="StackPanelPadding" TargetType="Control">
-                                            <Setter Property="Margin" Value="3"/>
-                                            <Setter Property="Height" Value="22"/>
-                                            <Setter Property="Width" Value="50"/>
-                                            <Setter Property="Background" Value="#FFD8D8D8"/>
-                                            <Setter Property="IsHitTestVisible" Value="False"/>
-                                            <Setter Property="IsTabStop" Value="False"/>
-                                        </Style>
-                                        <Style BasedOn="{StaticResource StackPanelPadding}" TargetType="Button"/>
+                                        <Style BasedOn="{StaticResource KnapsackItensStock}" TargetType="Button"/>
                                     </WrapPanel.Resources>
                                     <Button>Item #1</Button>
                                     <Button>Item #2</Button>

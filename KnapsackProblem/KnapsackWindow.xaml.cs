@@ -19,6 +19,11 @@ namespace KnapsackProblem
     /// </summary>
     public partial class KnapsackWindow : Window
     {
+
+        List<Item> itensList = new List<Item>();
+        List<Bag> bagsList = new List<Bag>();
+        List<Bag> bagsInitialList = new List<Bag>();
+
         public KnapsackWindow()
         {
             InitializeComponent();
