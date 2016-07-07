@@ -11,8 +11,8 @@
         <Label x:Name="labelPesoMaxMochila" Content="Peso máximo da mochila:" HorizontalAlignment="Left" Margin="28,39,0,0" VerticalAlignment="Top"/>
         <Slider x:Name="sliderPesoMaxMochila" Margin="177,44,0,0" HorizontalAlignment="Left" Width="202" Height="24" VerticalAlignment="Top" ValueChanged="sliderPesoMaxMochila_ValueChanged" TickPlacement="BottomRight" IsSnapToTickEnabled="True" 
                 TickFrequency="1" 
-                Minimum="5" 
-                Maximum="15" />
+                Minimum="15" 
+                Maximum="40" />
         <wpfTool:IntegerUpDown x:Name="numPesoMaxMochila" FormatString="N0" Margin="397,38,60.4,0" Height="24" VerticalAlignment="Top" Loaded="numPesoMaxMochila_Loaded" ValueChanged="numPesoMaxMochila_ValueChanged"/>
         <Label x:Name="label4" Content="Kg" HorizontalAlignment="Left" Margin="450,39,0,0" VerticalAlignment="Top"/>
 
@@ -32,16 +32,16 @@
 
         <Label x:Name="labelNumMochila" Content="Número de mochilas:" HorizontalAlignment="Left" Margin="28,175,0,0" VerticalAlignment="Top"/>
         <wpfTool:IntegerUpDown x:Name="numNumMochila" FormatString="N0" Margin="156,175,301.4,0" Height="24" VerticalAlignment="Top" 
-                Increment="1"
-                Minimum="2"
+                Increment="2"
+                Minimum="16"
                 Maximum="512" ValueChanged="numNumMochila_ValueChanged" LostFocus="numNumMochila_LostFocus"/>
         <Label x:Name="label1" Content="un." HorizontalAlignment="Left" Margin="211,175,0,0" VerticalAlignment="Top"/>
 
         <Label x:Name="labelTxCruzamento" Content="Taxa de cruzamentos:" HorizontalAlignment="Left" Margin="28,201,0,0" VerticalAlignment="Top"/>
         <wpfTool:IntegerUpDown x:Name="numTxCruzamento" FormatString="N0" Margin="156,203,301.4,0" Height="24" VerticalAlignment="Top"
                 Increment="1"
-                Minimum="20"
-                Maximum="100"/>
+                Minimum="64"
+                Maximum="4096"/>
         <Label x:Name="label" Content="un" HorizontalAlignment="Left" Margin="211,201,0,0" VerticalAlignment="Top"/>
 
         <Label x:Name="labelIntGeracao" Content="Intervalo de geração:" HorizontalAlignment="Left" Margin="276,175,0,0" VerticalAlignment="Top"/>
@@ -52,9 +52,9 @@
 
         <Label x:Name="labelTxMutacao" Content="Taxa de mutação:" HorizontalAlignment="Left" Margin="276,201,0,0" VerticalAlignment="Top"/>
         <wpfTool:DecimalUpDown x:Name="numTxMutacao" FormatString="N0" Margin="397,203,60.4,0" Height="24" VerticalAlignment="Top"
-                Increment="0.1"
-                Minimum="0.5"
-                Maximum="5.0"/>
+                Increment="1"
+                Minimum="1"
+                Maximum="20"/>
         <Label x:Name="label3" Content="%" HorizontalAlignment="Left" Margin="452,201,0,0" VerticalAlignment="Top"/>
 
         <Label x:Name="labelLimiar" Content="Limiar:" HorizontalAlignment="Left" Margin="370,267,0,0" VerticalAlignment="Top"/>

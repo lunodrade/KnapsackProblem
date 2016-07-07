@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:KnapsackProblem"
         mc:Ignorable="d"
         xmlns:DesignInControl="clr-namespace:KnapsackProblem"
-        Title="MainWindow" Height="473" Width="812" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Prolema da Mochila - Resultados" Height="473" Width="812" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid.Resources>
             <Style x:Key="KnapsackList" TargetType="Control">
@@ -20,7 +20,7 @@
                 <Setter Property="Foreground" Value="#333333"/>
                 <Setter Property="HorizontalContentAlignment" Value="Center"/>
                 <Setter Property="VerticalContentAlignment" Value="Center"/>
-                <Setter Property="Padding" Value="16,3,16,3"/>
+                <Setter Property="Padding" Value="5,3,5,3"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
@@ -61,16 +61,46 @@
             <Style x:Key="KnapsackItensStock" TargetType="Control">
                 <Setter Property="Margin" Value="3"/>
                 <Setter Property="Height" Value="22"/>
-                <Setter Property="Width" Value="50"/>
+                <Setter Property="Width" Value="56"/>
                 <Setter Property="Background" Value="#EFEFEF"/>
-                <Setter Property="IsHitTestVisible" Value="False"/>
-                <Setter Property="IsTabStop" Value="False"/>
+                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                <Setter Property="Background" Value="#EEE"/>
+                <Setter Property="BorderBrush" Value="#cccccc"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Foreground" Value="#333333"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Name="Chrome"
+                                                        Background="{TemplateBinding Background}"
+                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                                        SnapsToDevicePixels="true">
+                                <ContentPresenter Name="Presenter" Margin="{TemplateBinding Padding}"
+                                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                        RecognizesAccessKey="True"
+                                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Foreground" Value="#333333" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Style>
         </Grid.Resources>
-        
-        <ToggleButton IsChecked="True" Content="ITENS" Height="23" Margin="267,27,448,0" Name="button0" VerticalAlignment="Top" Click="button0_Click" />
-        <ToggleButton IsChecked="True" Content="ANTES" Height="23" Margin="357,27,357,0" Name="button1" VerticalAlignment="Top" Click="button1_Click" />
-        <ToggleButton IsChecked="True" Content="DEPOIS" Height="23" Margin="448,27,267,0" Name="button2" VerticalAlignment="Top" Click="button2_Click" />
+
+        <StackPanel Orientation="Horizontal" Margin="0,27,0,375" HorizontalAlignment="Center">
+            <ToggleButton IsChecked="True" Content="ITENS"  Height="23" Width="80" Name="button0" Click="button0_Click" />
+            <ToggleButton IsChecked="True" Content="ANTES"  Height="23" Width="80" Name="button1" Click="button1_Click" />
+            <ToggleButton IsChecked="True" Content="DEPOIS" Height="23" Width="80" Name="button2" Click="button2_Click" />
+        </StackPanel>
+
 
         <Grid Height="344" Margin="12,78,12,0" Name="grid1" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
@@ -82,7 +112,7 @@
             <Border Grid.Column="0" Padding="5" BorderBrush="Black" BorderThickness="1" CornerRadius="2"
                     Margin="5">
                 <ScrollViewer VerticalScrollBarVisibility="Visible">
-                    <StackPanel>
+                    <StackPanel x:Name="ItemsListPanel">
                         <StackPanel.Resources>
                             <Style x:Key="StackPanelPadding" TargetType="Control">
                                 <Setter Property="Margin" Value="5,2,5,2"/>
@@ -94,8 +124,9 @@
                             </Style>
                             <Style BasedOn="{StaticResource StackPanelPadding}" TargetType="Button"/>
                         </StackPanel.Resources>
+                        <!--
                         <Button>
-                            <TextBlock><TextBlock Margin="0,0,20,0">#1</TextBlock>Peso: 7 Kg | Valor: 6 $</TextBlock>
+                            <TextBlock>#1 - Peso: 7 Kg | Valor: 6 $</TextBlock>
                         </Button>
                         <Button>
                             <TextBlock><TextBlock Margin="0,0,20,0">#2</TextBlock>Peso: 3 Kg | Valor: 2 $</TextBlock>
@@ -130,6 +161,7 @@
                         <Button>
                             <TextBlock><TextBlock Margin="0,0,20,0">#12</TextBlock>Peso: 4 Kg | Valor: 7 $</TextBlock>
                         </Button>
+                        -->
                     </StackPanel>
                 </ScrollViewer>
             </Border>
@@ -138,10 +170,11 @@
                     Margin="5">
                 <StackPanel>
                     <ScrollViewer VerticalScrollBarVisibility="Visible" Height="180" Padding="15,10,15,10">
-                        <WrapPanel>
+                        <WrapPanel x:Name="BagsListInitialPanel" Button.Click="BagInitialHandler">
                             <WrapPanel.Resources>
                                 <Style BasedOn="{StaticResource KnapsackList}" TargetType="Button"/>
                             </WrapPanel.Resources>
+                            <!--
                             <Button>Bag #1</Button>
                             <Button>Bag #2</Button>
                             <Button>Bag #3</Button>
@@ -154,20 +187,23 @@
                             <Button>Bag #10</Button>
                             <Button>Bag #11</Button>
                             <Button>Bag #12</Button>
+                            -->
                         </WrapPanel>
                     </ScrollViewer>
-                    <Border BorderBrush="Gray" BorderThickness="1" Height="153">
-                        <Grid Background="#FF94BABA" Height="151">
+                    <Border BorderBrush="#ecf0f1" BorderThickness="1" Height="153">
+                        <Grid Background="#ecf0f1" Height="151">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="100" />
                             </Grid.ColumnDefinitions>
 
                             <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
-                                <WrapPanel Grid.Column="0" Orientation="Vertical" Height="127" Margin="5">
+                                <WrapPanel Grid.Column="0" Orientation="Vertical" Height="127" Margin="5"
+                                           x:Name="BagsInitialContainer">
                                     <WrapPanel.Resources>
                                         <Style BasedOn="{StaticResource KnapsackItensStock}" TargetType="Button"/>
                                     </WrapPanel.Resources>
+                                    <!--
                                     <Button>Item #1</Button>
                                     <Button>Item #2</Button>
                                     <Button>Item #3</Button>
@@ -180,22 +216,22 @@
                                     <Button>Item #10</Button>
                                     <Button>Item #11</Button>
                                     <Button>Item #12</Button>
+                                    -->
                                 </WrapPanel>
                             </ScrollViewer>
 
-                            <StackPanel Grid.Column="1" Background="#FF749A9A">
-
-
-                                <TextBlock Text="Peso %:" TextAlignment="Center"/>
+                            <StackPanel Grid.Column="1" Background="#bdc3c7" x:Name="stackCircularInitial" Visibility="Hidden">
+                                <TextBlock Text="FITNESS %" Margin="0,5,0,0" TextAlignment="Center" />
                                 <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                                     <DesignInControl:CircularProgressBar HorizontalAlignment="Center" VerticalAlignment="Center" SegmentColor="#FF878889" StrokeThickness="10" Percentage="100" />
-                                    <DesignInControl:CircularProgressBar HorizontalAlignment="Center" VerticalAlignment="Center" Percentage="{Binding Value, ElementName=slider}" SegmentColor="#026873" StrokeThickness="15" />
+                                    <DesignInControl:CircularProgressBar x:Name="CircularInitial" HorizontalAlignment="Center" VerticalAlignment="Center" Percentage="{Binding Value, ElementName=sliderInitial}" SegmentColor="#16a085" StrokeThickness="15" />
                                 </Grid>
-                                <TextBlock Text="{Binding Value, ElementName=slider}" Margin="39,-50,39,35" TextAlignment="Center"></TextBlock>
-                                <Slider x:Name="slider" Grid.Row="1" Maximum="100" Value="30" />
-                                <TextBlock Margin="10" Text="Valor $: 45" TextAlignment="Center"/>
-                                
-                                
+                                <TextBlock x:Name="pesoTBinitial" Margin="0,5,0,0" TextAlignment="Center" />
+                                <TextBlock x:Name="valorTBinitial" Margin="0,2,0,0" TextAlignment="Center" />
+                                <TextBlock x:Name="fitnessTBInitial" Margin="0,2,0,0" TextAlignment="Center" />
+                                <TextBlock Text="{Binding Value, ElementName=sliderInitial}" Margin="39,-105,39,0" TextAlignment="Center"></TextBlock>
+                                <Slider x:Name="sliderInitial" Grid.Row="1" Maximum="100" Value="30" Visibility="Hidden" />
+
                             </StackPanel>
 
                         </Grid>
@@ -207,10 +243,11 @@
                     Margin="5">
                 <StackPanel>
                     <ScrollViewer VerticalScrollBarVisibility="Visible" Height="180" Padding="15,10,15,10">
-                        <WrapPanel>
+                        <WrapPanel x:Name="BagsListPanel" Button.Click="BagFinalHandler">
                             <WrapPanel.Resources>
                                 <Style BasedOn="{StaticResource KnapsackList}" TargetType="Button"/>
                             </WrapPanel.Resources>
+                            <!--
                             <Button>Bag #1</Button>
                             <Button>Bag #2</Button>
                             <Button>Bag #3</Button>
@@ -223,20 +260,23 @@
                             <Button>Bag #10</Button>
                             <Button>Bag #11</Button>
                             <Button>Bag #12</Button>
+                            -->
                         </WrapPanel>
                     </ScrollViewer>
-                    <Border BorderBrush="Gray" BorderThickness="1" Height="153">
-                        <Grid Background="#FF94BABA" Height="151">
+                    <Border BorderBrush="#ecf0f1" BorderThickness="1" Height="153">
+                        <Grid Background="#ecf0f1" Height="151">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="100" />
                             </Grid.ColumnDefinitions>
 
                             <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
-                                <WrapPanel Grid.Column="0" Orientation="Vertical" Height="127" Margin="5">
+                                <WrapPanel Grid.Column="0" Orientation="Vertical" Height="127" Margin="5"
+                                           x:Name="BagsFinalContainer">
                                     <WrapPanel.Resources>
                                         <Style BasedOn="{StaticResource KnapsackItensStock}" TargetType="Button"/>
                                     </WrapPanel.Resources>
+                                    <!--
                                     <Button>Item #1</Button>
                                     <Button>Item #2</Button>
                                     <Button>Item #3</Button>
@@ -249,11 +289,22 @@
                                     <Button>Item #10</Button>
                                     <Button>Item #11</Button>
                                     <Button>Item #12</Button>
+                                    -->
                                 </WrapPanel>
                             </ScrollViewer>
 
-                            <StackPanel Grid.Column="1" Background="#FF749A9A">
-                                <Button>VISUAL</Button>
+                            <StackPanel Grid.Column="1" Background="#bdc3c7" x:Name="stackCircularFinal" Visibility="Hidden">
+                                <TextBlock Text="FITNESS %" Margin="0,5,0,0" TextAlignment="Center" />
+                                <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <DesignInControl:CircularProgressBar HorizontalAlignment="Center" VerticalAlignment="Center" SegmentColor="#FF878889" StrokeThickness="10" Percentage="100" />
+                                    <DesignInControl:CircularProgressBar x:Name="CircularFinal" HorizontalAlignment="Center" VerticalAlignment="Center" Percentage="{Binding Value, ElementName=sliderFinal}" SegmentColor="#16a085" StrokeThickness="15" />
+                                </Grid>
+                                <TextBlock x:Name="pesoTBfinal" Margin="0,5,0,0" TextAlignment="Center" />
+                                <TextBlock x:Name="valorTBfinal" Margin="0,2,0,0" TextAlignment="Center" />
+                                <TextBlock x:Name="fitnessTBfinal" Margin="0,2,0,0" TextAlignment="Center" />
+                                <TextBlock Text="{Binding Value, ElementName=sliderFinal}" Margin="39,-105,39,0" TextAlignment="Center"></TextBlock>
+                                <Slider x:Name="sliderFinal" Grid.Row="1" Maximum="100" Value="30" Visibility="Hidden" />
+
                             </StackPanel>
 
                         </Grid>
@@ -261,6 +312,7 @@
                 </StackPanel>
             </Border>
         </Grid>
+        <TextBlock x:Name="infoExec" Margin="576,27,25.6,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="46" TextAlignment="Right"/>
 
 
 

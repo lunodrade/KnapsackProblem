@@ -10,10 +10,14 @@ namespace KnapsackProblem
     {
         public string chromosomes { get; set; }
         public decimal fitness { get; set; }
-        public Bag(string chromosomes, decimal fitness)
+        public decimal peso { get; set; }
+        public bool overflow { get; set; }
+        public Bag(string chromosomes, decimal fitness, decimal peso, bool overflow)
         {
             this.chromosomes = chromosomes;
             this.fitness = fitness;
+            this.peso = peso;
+            this.overflow = overflow;
         }
     }
 }
